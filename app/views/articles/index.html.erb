@@ -1,12 +1,6 @@
 <p>A breaking news item</p>
 <p>Some really breaking action</p>
-
-<% @articles.each do |article| %>
-  <p><%= article.title %></p>
-  <p><%= article.content %></p>
-<% end %>
 <%= link_to 'New Article', new_article_path %>
-
 <table>
   <tr>
     <th>Title</th>
@@ -14,6 +8,20 @@
   </tr>
  
   <% @articles.each do |article| %>
+    <%= form_with url: article_comment_index_path(article), remote: false do |f| %>
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </p>
+      <p>
+        <%= f.label :comment %><br>
+        <%= f.text_area :comment %>
+      </p>
+      <p>
+        <%= f.submit "Send comment"%>
+      </p>
+    <% end %>
+
     <tr>
       <td><%= article.title %></td>
       <td><%= article.content %></td>
