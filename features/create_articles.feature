@@ -7,7 +7,7 @@ Feature: Create articles
     Given the following articles exists
       | title                | content                                |
       | Learning Rails 5     | Excited about learning a new framework |
-    When I visit the "landing" page
+    And I visit the site
 
   Scenario: Successfully create an article [Happy Path]
     When I click "New Article" 
