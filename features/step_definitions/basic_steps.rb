@@ -20,12 +20,9 @@ Given("I am reading the article titled {string}") do |title|
   @article = Article.find_by_title(title)
 end
 
-Given("the following comment exists") do |table|
-  table.hashes.each do |comment|
-    Comment.create(comment)
+When("I visit the article comment site") do
+  case page
+  when 'Learning Rails 5'
+    visit 'article_comments'
   end
-end
-
-Then("I should see {string} with {string}") do |string, string2|
-  pending # Write code here that turns the phrase above into concrete actions
 end

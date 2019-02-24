@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    email { "my@email.com" }
-    comment { "This is awesome!" }
+    email { "MyString" }
+    commenter { "MyString" }
+    body { "MyText" }
+    article { nil }
   end
 end
