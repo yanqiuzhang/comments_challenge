@@ -8,6 +8,7 @@
   </tr>
  
   <% @articles.each do |article| %>
+   <div>
     <%= form_with url: article_comment_index_path(article), remote: false do |f| %>
       <p>
         <%= f.label :email %><br>
@@ -21,6 +22,12 @@
         <%= f.submit "Send comment"%>
       </p>
     <% end %>
+    <% article.comments.each do |comment|%>
+       <p><%= comment.email %></p>
+      <p><%= comment.comment %></p>
+    <% end %>
+     
+    </div>
 
     <tr>
       <td><%= article.title %></td>
